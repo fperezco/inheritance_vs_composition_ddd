@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Domain\OneToMany\InheritanceMode\CommentableObject\Entity\CommentableObject" table="commentable_objects" inheritance-type="JOINED">
+
+        <id name="uuid" type="uuid" column="uuid" length="36" />
+
+        <discriminator-column name="discr" type="string" />
+        <discriminator-map>
+            <discriminator-mapping value="article_in" class="App\Domain\OneToMany\InheritanceMode\ArticleInheritance\Entity\ArticleInheritance" />
+            <discriminator-mapping value="video_in" class="App\Domain\OneToMany\InheritanceMode\VideoInheritance\Entity\VideoInheritance" />
+        </discriminator-map>
+    </entity>
+</doctrine-mapping>
+
+
